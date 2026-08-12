@@ -407,9 +407,9 @@ Create a `.env` file inside the `server/` directory:
 
 ```env
 PORT=5000
-COGNODB_URI=bolt+s://db-f354f87b.databases.cognodb.com
+COGNODB_URI=bolt+s://<your-cognodb-instance-id>.databases.cognodb.cloud:7687
 COGNODB_USER=cognodb
-COGNODB_PASSWORD=b5e03d0471a6bff7b6b49d86629c9c0e
+COGNODB_PASSWORD=<your_saved_password>
 ```
 
 > **Important:** Never commit your `.env` file or database credentials to GitHub.
@@ -594,11 +594,9 @@ Potential future improvements include:
 
 ## GitHub Repository
 
-```text
-https://github.com/your-username/supplychainx
-```
-
-Replace `your-username` with your actual GitHub username before submission.
+- **GitHub Repository:** https://github.com/yuvaspravin/supplychainx
+- **Live Demo Link:** https://supplychainx-alpha.vercel.app
+- **Screen Recording:** https://www.loom.com/share/45e3dd7f5b104e0bb1df911e8fa42a55
 
 ---
 
