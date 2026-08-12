@@ -394,7 +394,7 @@ Create a free `c0` CognoDB instance from the CognoDB Cloud console.
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/supplychainx.git
+git clone https://github.com/yuvaspravin/supplychainx.git
 
 cd supplychainx
 ```
@@ -407,12 +407,9 @@ Create a `.env` file inside the `server/` directory:
 
 ```env
 PORT=5000
-
-COGNODB_URI=bolt+s://<your-instance-id>.databases.cognodb.cloud:7687
-
+COGNODB_URI=bolt+s://db-f354f87b.databases.cognodb.com
 COGNODB_USER=cognodb
-
-COGNODB_PASSWORD=<your_saved_password>
+COGNODB_PASSWORD=b5e03d0471a6bff7b6b49d86629c9c0e
 ```
 
 > **Important:** Never commit your `.env` file or database credentials to GitHub.

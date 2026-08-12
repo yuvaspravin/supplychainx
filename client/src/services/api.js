@@ -1,10 +1,10 @@
 const API_BASE =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+  import.meta.env.VITE_API_BASE_URL || "https://supplychainx.onrender.com/api";
 
 export async function fetchGraphData() {
   const response = await fetch(`${API_BASE}/graph`);
   if (!response.ok) {
-    throw new Error(`Failed to load graph data (${response.status})`);
+    throw new Error(`F ailed to load graph data (${response.status})`);
   }
   return response.json();
 }
