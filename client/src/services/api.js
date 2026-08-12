@@ -1,10 +1,13 @@
-const API_BASE =
+// Remove trailing slashes dynamically to prevent 404s
+const RAW_URL =
   import.meta.env.VITE_API_BASE_URL ||
   "https://supplychainx-469a.onrender.com/api";
+const API_BASE = RAW_URL.replace(/\/+$/, "");
+
 export async function fetchGraphData() {
   const response = await fetch(`${API_BASE}/graph`);
   if (!response.ok) {
-    throw new Error(`F ailed to load graph data (${response.status})`);
+    throw new Error(`Failed to load graph data (${response.status})`);
   }
   return response.json();
 }
