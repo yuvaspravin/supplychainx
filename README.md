@@ -596,7 +596,7 @@ Potential future improvements include:
 
 - **GitHub Repository:** https://github.com/yuvaspravin/supplychainx
 - **Live Demo Link:** https://supplychainx-alpha.vercel.app
-- **Screen Recording:** https://www.loom.com/share/45e3dd7f5b104e0bb1df911e8fa42a55
+- **Screen Recording:** https://www.loom.com/share/b08dae64e606439f84f05fe2571584e1
 
 ---
 
