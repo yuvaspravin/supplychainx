@@ -13,7 +13,6 @@ exports.getGraphData = async (req, res) => {
     `;
 
     const result = await runQueryWithRetry(cypher);
-
     const nodesMap = new Map();
     const links = [];
 
@@ -70,9 +69,10 @@ exports.getBlastRadius = async (req, res) => {
 
   try {
     const cypher = `
-      MATCH (start:Company {id: $companyId})
-      MATCH path = (start)-[:SUPPLIES|MANUFACTURING|ASSEMBLED_INTO*1..4]->(affected:Product)
-      RETURN path, affected, length(path) as depth
+      MATCH path = (start:Company {id: $companyId})-[:SUPPLIES|MANUFACTURING|ASSEMBLED_INTO*1..4]->(affected:Product)
+      WITH DISTINCT affected, min(length(path)) AS minDepth
+      RETURN affected, minDepth AS depth
+      ORDER BY minDepth ASC
     `;
 
     const result = await runQueryWithRetry(cypher, { companyId });

@@ -7,6 +7,20 @@ const labelIcons = {
   Product: Box,
 };
 
+// Helper function to extract primitive values safely
+const formatValue = (val) => {
+  if (val === null || val === undefined) return "N/A";
+  if (typeof val === "object") {
+    // If it's a Neo4j Integer object with a toNumber method
+    if (typeof val.toNumber === "function") return val.toNumber();
+    // If it's a Neo4j Integer object with low/high properties
+    if ("low" in val) return val.low;
+    // Fallback JSON stringification
+    return JSON.stringify(val);
+  }
+  return val.toString();
+};
+
 export const NodeCard = React.memo(
   ({ selectedNode, onCalculateBlastRadius, loadingBlast }) => {
     if (!selectedNode) {
@@ -41,7 +55,7 @@ export const NodeCard = React.memo(
                 {mainLabel}
               </span>
               <h2 className="text-base font-bold text-white mt-1">
-                {properties.name || properties.id}
+                {formatValue(properties.name || properties.id)}
               </h2>
             </div>
           </div>
@@ -58,7 +72,8 @@ export const NodeCard = React.memo(
                 {key}
               </p>
               <p className="font-semibold text-slate-200 mt-0.5 truncate">
-                {String(val)}
+                {formatValue(val)}{" "}
+                {/* 👈 FIXED: Calling formatValue(val) here! */}
               </p>
             </div>
           ))}
