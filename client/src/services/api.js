@@ -1,6 +1,6 @@
 const API_BASE =
-  import.meta.env.VITE_API_BASE_URL || "https://supplychainx.onrender.com/api";
-
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://supplychainx-469a.onrender.com/api";
 export async function fetchGraphData() {
   const response = await fetch(`${API_BASE}/graph`);
   if (!response.ok) {
